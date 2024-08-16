@@ -1,7 +1,13 @@
 #include <iostream>
 
-int numero = 1;
+//funcion para ver si el número es par o impar
+bool par_impar(int numero){
+    return numero / 2 == 0
+}
+
+
 
 int main() {
-    std::cout << numero ;
+    int numero = 1;
+    //std::cout << numero ;
 }
