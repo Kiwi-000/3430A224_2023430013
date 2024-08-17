@@ -6,6 +6,17 @@ bool par_impar(int numero){
     return numero % 2 == 0;
 }
 
+//funcion para determinar la longitud
+int calcular_longitud(string texto){
+    int longitud = 0;
+
+    for(char c : texto){
+        longitud ++;
+    }
+
+    return longitud;
+}
+
 
 int main() {
 
@@ -30,6 +41,8 @@ int main() {
 
     std::cout << "Ingrese un texto: ";
     std::getline(std::cin, texto);
-    std::cout << texto;
+    //std::cout << texto;
     
+    int longitud = calcular_longitud(texto);
+    std::cout << "La longitud de ese texto es de: " << longitud;
 }
