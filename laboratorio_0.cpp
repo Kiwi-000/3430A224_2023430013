@@ -33,6 +33,18 @@ int main() {
         std::cout << "El número ingresado es impar."<< std::endl;
     }
 
+    std::cout <<"____________________________________________________________________" << std::endl;
+
+    for (int i = 1; i <= 10; i++){
+
+        if(par_impar(i)){
+            std::cout << "El numero " << i << " es par." << std::endl;
+        }
+        else{
+            std::cout <<"El numero " << i << " es impar." << std::endl;
+        }
+    }
+
     // para que no de problemas con el getline
     std::cin.ignore();
 
