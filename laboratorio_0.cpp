@@ -7,7 +7,7 @@ bool par_impar(int numero){
 }
 
 //funcion para determinar la longitud
-int calcular_longitud(string texto){
+int calcular_longitud(std::string texto){
     int longitud = 0;
 
     for(char c : texto){
