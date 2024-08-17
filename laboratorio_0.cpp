@@ -37,12 +37,15 @@ int main() {
     std::cin.ignore();
 
     // Texto
+    std::cout <<"____________________________________________________________________" << std::endl;
 
     std::string texto_ejemplo = "Hola Mundo!";
     std::cout << texto_ejemplo << std::endl;
 
     int longitud_ejemplo = calcular_longitud(texto_ejemplo);
     std::cout << "La longitud de el texto anterior es de: " << longitud_ejemplo << std::endl;
+
+    std::cout <<"____________________________________________________________________" << std::endl;
 
     std::string texto;
 
