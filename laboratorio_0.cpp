@@ -37,12 +37,22 @@ int main() {
     std::cin.ignore();
 
     // Texto
+
+    std::string texto_ejemplo = "Hola Mundo!";
+    std::cout << texto_ejemplo << std::endl;
+
+    int longitud_ejemplo = calcular_longitud(texto_ejemplo);
+    std::cout << "La longitud de el texto anterior es de: " << longitud_ejemplo << std::endl;
+
     std::string texto;
 
-    std::cout << "Ingrese un texto: ";
+    std::cout << "Ingrese un texto: " << std::endl;
     std::getline(std::cin, texto);
     //std::cout << texto;
     
     int longitud = calcular_longitud(texto);
     std::cout << "La longitud de ese texto es de: " << longitud;
+
+
+    return 0; 
 }
