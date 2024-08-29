@@ -11,33 +11,29 @@ struct Paciente{
 };
 
 int main(){
-    
-    Paciente persona[3];
 
-    persona[0].nombre = "Camila";
-    persona[0].edad = 45;
-    persona[0].peso = 66;
-    persona[0].altura = 1.70;
 
-    persona[1].nombre = "Juan";
-    persona[1].edad = 5;
-    persona[1].peso = 15;
-    persona[1].altura = 90;
+    Paciente persona1 = {"Camila", 45, 66, 1.70 };
+    Paciente persona2 = {"Juan", 5, 15, 0.90 };
+    Paciente persona3 = {"Ana", 17, 45, 1.55 };
 
-    persona[2].nombre = "Ana";
-    persona[2].edad = 17;
-    persona[2].peso = 45;
-    persona[2].altura = 1.55;
-            
-            
-    for ( int i= 0; i < 3; ++i){
-        cout <<"Nombre: "<< persona[i].nombre << endl;
-        cout << "Edad: " << persona[i].edad << endl;
-        cout << "Peso: " << persona[i].peso << endl;
-        cout << "Altura: " << persona[i].altura << endl;
-        cout << " " << endl;
+    cout <<"Nombre: "<< persona1.nombre << endl;
+    cout << "Edad: " << persona1.edad << endl;
+    cout << "Peso: " << persona1.peso << endl;
+    cout << "Altura: " << persona1.altura << endl;
+    cout << " " << endl;
 
-    };
+    cout <<"Nombre: "<< persona2.nombre << endl;
+    cout << "Edad: " << persona2.edad << endl;
+    cout << "Peso: " << persona2.peso << endl;
+    cout << "Altura: " << persona2.altura << endl;
+    cout << " " << endl;
+
+    cout <<"Nombre: "<< persona3.nombre << endl;
+    cout << "Edad: " << persona3.edad << endl;
+    cout << "Peso: " << persona3.peso << endl;
+    cout << "Altura: " << persona3.altura << endl;
+    cout << " " << endl;
 
     return 0;
 
