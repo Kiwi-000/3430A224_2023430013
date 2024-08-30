@@ -125,6 +125,7 @@ int main(){
         cout << "4. Calcular Promedio de Edad" << endl;
         cout << "5. Calcular Promedio de Peso" << endl;
         cout << "6. Calcular IMC de Pacientes" << endl;
+        cout << "0. Salir" << endl;
         cin >> choice;
 
         switch (choice) {
@@ -167,17 +168,21 @@ int main(){
                 break;
 
             }
+            case '0': {
+                while(head != nullptr){
+                    Paciente* temp = head;
+                    head = head -> next;
+                    delete temp;
+                }
+                return 0;
+            }
+        
+            default:{
+                cout <<"Invalido, intente de nuevo.";
+                break;
+            }
+
         }
-
-}
-
-
-    while(head != nullptr){
-        Paciente* temp = head;
-        head = head -> next;
-        delete temp;
     }
-
-    return 0;
 
 }
