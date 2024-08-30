@@ -101,7 +101,7 @@ void calculo_imc(const Paciente* head){
     while(nodo != nullptr){
         int peso = nodo -> peso;
         double altura = nodo -> altura;
-        double imc = peso + (altura * altura);
+        double imc = peso / (altura * altura);
 
         
         cout << "El IMC de " << nodo -> nombre << " es " << imc << endl;
