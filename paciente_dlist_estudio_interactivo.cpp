@@ -111,35 +111,66 @@ void calculo_imc(const Paciente* head){
 }
 
 
+
 int main(){
     Paciente* head = nullptr;
+    char choice;
 
-    addPaciente(head,"Camila", 45, 66, 1.73);
-    addPaciente(head,"Juan", 5, 15, 0.90);
-    addPaciente(head,"Ana", 17, 45, 1.55);
+    while(true){
+        cout << "------------------------" << endl;
+        cout << "Marque un numero: " << endl;
+        cout << "1. Agregar Paciente" << endl;
+        cout << "2. Eliminar Paciente" << endl;
+        cout << "3. Mostrar Pacientes" << endl;
+        cout << "4. Calcular Promedio de Edad" << endl;
+        cout << "5. Calcular Promedio de Peso" << endl;
+        cout << "6. Calcular IMC de Pacientes" << endl;
+        cin >> choice;
 
-    printPaciente(head);
+        switch (choice) {
+            case '1': {
+                string nombre;
+                int edad, peso;
+                double altura;
+                cout << "Nombre: ";
+                cin >> nombre;
+                cout << "Edad: ";
+                cin >> edad;
+                cout << "Peso (kg): ";
+                cin >> peso;
+                cout << "Altura (m): ";
+                cin >> altura;
+                addPaciente(head, nombre, edad, peso, altura);
+                break;
+            }
+            case '2': {
+                string nombre;
+                cout << "Escribe el nombre del paciente que quieres eliminar: ";
+                cin >> nombre;
+                removePaciente(head, nombre);
+                break;
+            }
+            case '3': {
+                printPaciente(head);
+                break;
+            }
+            case '4': {
+                promedio_edad(head);
+                break;
+            }
+            case '5': {
+                promedio_peso(head);
+                break;
+            }
+            case '6': {
+                calculo_imc(head);
+                break;
 
-    promedio_edad(head);
+            }
+        }
 
-    promedio_peso(head);
+}
 
-    calculo_imc(head);
-
-    removePaciente(head, "Juan");
-
-
-    //-------------Luego de eliminar un paciente---------------
-
-    cout << " " << endl;
-
-    printPaciente(head);
-
-    promedio_edad(head);
-
-    promedio_peso(head);
-    
-    calculo_imc(head);
 
     while(head != nullptr){
         Paciente* temp = head;
