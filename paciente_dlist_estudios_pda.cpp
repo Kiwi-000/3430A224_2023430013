@@ -11,13 +11,13 @@ using namespace std;
 struct Paciente {
     string nombre;
     int edad;
-    float altura; 
-    float peso;   
+    float altura;
+    float peso;
     float imc;
     float a1c;
     int prioridad;
 
-    // Calcular el IMC 
+    // Calcular el IMC
     void calcularIMC() {
         imc = peso / (altura * altura);
     }
@@ -25,21 +25,21 @@ struct Paciente {
     // Calcular la prioridad del paciente basado en IMC y A1C
     void calcularPrioridad() {
         if (a1c > 6.5) {
-            prioridad = 3; 
+            prioridad = 3;
         } else if (a1c >= 5.7) {
-            prioridad = 2; 
+            prioridad = 2;
         } else {
-            prioridad = 1; 
+            prioridad = 1;
         }
         if (imc > 30) {
-            prioridad += 1; 
+            prioridad += 1;
         }
     }
 };
 
 struct ComparadorPrioridad {
     bool operator()(const Paciente &a, const Paciente &b) {
-        return a.prioridad < b.prioridad; 
+        return a.prioridad < b.prioridad;
     }
 };
 
@@ -52,7 +52,7 @@ vector<Paciente> cargarPacientesDesdeCSV(const string &filename) {
     }
 
     string linea;
-    getline(archivo, linea); 
+    getline(archivo, linea);
     while (getline(archivo, linea)) {
         stringstream ss(linea);
         string nombre, edad, altura, peso, a1c;
@@ -79,14 +79,21 @@ vector<Paciente> cargarPacientesDesdeCSV(const string &filename) {
 
 // Mostrar datos de un paciente
 void mostrarPaciente(const Paciente &p) {
-    cout << "Nombre: " << p.nombre << ", Edad: " << p.edad
-         << ", Altura: " << p.altura << " m, Peso: " << p.peso << " kg, IMC: "
-         << p.imc << ", A1C: " << p.a1c << ", Prioridad: " << p.prioridad << endl;
+    cout << "---------------------------------------------------" << endl;
+    cout << "Nombre: " << p.nombre << endl;
+    cout << "Edad: " << p.edad << " años" << endl;
+    cout << "Altura: " << p.altura << " m" << endl;
+    cout << "Peso: " << p.peso << " kg" << endl;
+    cout << "IMC: " << p.imc << endl;
+    cout << "A1C: " << p.a1c << endl;
+    cout << "Prioridad: " << p.prioridad << endl;
+    cout << " " << endl;
 }
 
-// Buscar pacientes 
+// Buscar pacientes
 void buscarPacientes(const vector<Paciente> &pacientes, float imcMin, float imcMax, float a1cMin, float a1cMax) {
-    cout << "Pacientes con IMC entre " << imcMin << " y " << imcMax << " y A1C entre " << a1cMin << " y " << a1cMax << ":\n";
+    cout << "---------------------------------------------------" << endl;
+    cout << "Pacientes con IMC entre " << imcMin << " y " << imcMax << " y A1C entre " << a1cMin << " y " << a1cMax << ":" << endl;
     for (const auto &p : pacientes) {
         if (p.imc >= imcMin && p.imc <= imcMax && p.a1c >= a1cMin && p.a1c <= a1cMax) {
             mostrarPaciente(p);
@@ -94,19 +101,19 @@ void buscarPacientes(const vector<Paciente> &pacientes, float imcMin, float imcM
     }
 }
 
-
 void mostrarMenu() {
-    cout << "\nMenu de Gestion de Pacientes\n";
-    cout << "1. Mostrar todos los pacientes\n";
-    cout << "2. Buscar pacientes por IMC y A1C\n";
-    cout << "3. Mostrar pacientes en cola de prioridad\n";
-    cout << "4. Atender al siguiente paciente\n";
-    cout << "5. Salir\n";
+    cout << "---------------------------------------------------" << endl;
+    cout << "Menu de Gestion de Pacientes" << endl;
+    cout << "1. Mostrar todos los pacientes" << endl;
+    cout << "2. Buscar pacientes por IMC y A1C" << endl;
+    cout << "3. Mostrar pacientes en cola de prioridad" << endl;
+    cout << "4. Atender al siguiente paciente" << endl;
+    cout << "5. Salir" << endl;
     cout << "Seleccione una opción: ";
 }
 
 int main() {
-    string archivoCSV = "patientlist.csv"; 
+    string archivoCSV = "patientlist.csv";
     vector<Paciente> pacientes = cargarPacientesDesdeCSV(archivoCSV);
     priority_queue<Paciente, vector<Paciente>, ComparadorPrioridad> cola;
 
@@ -115,12 +122,14 @@ int main() {
     }
 
     int opcion;
+    priority_queue<Paciente, vector<Paciente>, ComparadorPrioridad> copiaCola;  
     do {
         mostrarMenu();
         cin >> opcion;
         switch (opcion) {
         case 1:
-            cout << "\nLista de todos los pacientes:\n";
+            cout << "---------------------------------------------------" << endl;
+            cout << "Lista de todos los pacientes:" << endl;
             for (const auto &p : pacientes) {
                 mostrarPaciente(p);
             }
@@ -135,8 +144,9 @@ int main() {
             break;
         }
         case 3:
-            cout << "\nPacientes en cola de prioridad:\n";
-            priority_queue<Paciente, vector<Paciente>, ComparadorPrioridad> copiaCola = cola;
+            cout << "---------------------------------------------------" << endl;
+            cout << "Pacientes en cola de prioridad:" << endl;
+            copiaCola = cola; 
             while (!copiaCola.empty()) {
                 mostrarPaciente(copiaCola.top());
                 copiaCola.pop();
@@ -144,20 +154,22 @@ int main() {
             break;
         case 4:
             if (!cola.empty()) {
-                cout << "\nAtendiendo al siguiente paciente:\n";
+                cout << "---------------------------------------------------" << endl;
+                cout << "Atendiendo al siguiente paciente:" << endl;
                 mostrarPaciente(cola.top());
                 cola.pop();
             } else {
-                cout << "No hay pacientes en la cola.\n";
+                cout << "No hay pacientes en la cola." << endl;
             }
             break;
         case 5:
-            cout << "Saliendo del programa...\n";
+            cout << "Saliendo del programa..." << endl;
             break;
         default:
-            cout << "Opción no válida, intente nuevamente.\n";
+            cout << "Opción no válida, intente nuevamente." << endl;
         }
     } while (opcion != 5);
 
     return 0;
 }
+
