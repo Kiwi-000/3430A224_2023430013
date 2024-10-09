@@ -1,4 +1,4 @@
-Descripción laboratorio 4: 
+Laboratorio 4: 
 Este programa gestiona un árbol binario, permitiendo insertar, buscar, eliminar y modificar elementos, así como imprimir el árbol en diferentes 
 órdenes. También genera un grafo visual en formato PNG.
 
