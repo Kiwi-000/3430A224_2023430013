@@ -1,4 +1,4 @@
-lABORATORIO 5
+LABORATORIO 5
 Este programa gestiona un árbol AVL, permitiendo insertar, buscar, eliminar y modificar elementos. El árbol se mantiene balanceado automáticamente mediante rotaciones (RII, RDD, RID, RDI). Además, el programa permite imprimir el árbol en preorden y generar un grafo visual en formato PNG a partir del árbol.
 
 Requisitos
