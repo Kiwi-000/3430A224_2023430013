@@ -259,6 +259,12 @@ int main() {
     int D[N];
     int M[N][N];
 
+    // V[] Representa los nodos del grafo.
+    // S[] Representa los nodos ya visitado.
+    // VS[] Representa los nodos aun no visitado.
+    // D[] Almacena las distancias minimas desde el nodo de origen.
+    // M[][] Representa la matriz de distancias.
+
     // Inicialización
     inicializar_vector_caracter(V, 0);
     inicializar_vector_caracter(S, 0);
