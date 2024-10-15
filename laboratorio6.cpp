@@ -18,7 +18,7 @@ void inicializar_vector_D(int D[N], int M[N][N], int col);
 void inicializar_vector_caracter(char vector[], int col);
 void aplicar_dijkstra(char V[N], char S[N], char VS[N], int D[N], int M[N][N]);
 void imprimir_matriz(int matriz[N][N]);
-void imprimir_vector_caracter(char vector[N], char *nomVector);
+void imprimir_vector_caracter(char vector[N], const char *nomVector);
 void imprimir_vector_entero(int vector[N]);
 void imprimir_grafo(int matriz[N][N], char vector[N]);
 void agrega_vertice_a_S(char S[N], char vertice);
@@ -41,7 +41,9 @@ void leer_nodos(char vector[N], int n) {
 
 // Función para leer la matriz de distancias
 void leer_matriz_distancias(char V[N], int M[N][N]) {
-    cout << "Ingrese la matriz de distancias (use -1 para distancias infinitas)" << endl;
+    cout << "Ingrese valores para la matriz de distancias" << endl;
+    cout << " - Tenga en cuenta que la Matriz es de 5 x 5" << endl;
+    cout << " - Use -1 para distancias infinitas" << endl;
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
             if (i == j) {
@@ -97,7 +99,7 @@ void aplicar_dijkstra(char V[N], char S[N], char VS[N], int D[N], int M[N][N]) {
 
     for (i = 1; i < N; i++) {
         // elige un vértice en v de VS[] tal que D[v] sea el mínimo
-        cout << "\n> Elige vértice menor en VS[] según valores en D[]" << endl;
+        cout << "\n> Elige vertice menor en VS[] segun valores en D[]" << endl;
         cout << "> Lo agrega a S[] y actualiza VS[]" << endl;
         v = elegir_vertice(VS, D, V);
 
@@ -205,7 +207,7 @@ int calcular_minimo(int dw, int dv, int mvw) {
 //---------------------Funciones de impresión--------------------------------------------------
 
 // Imprime el contenido de un vector de caracteres
-void imprimir_vector_caracter(char vector[N], char *nomVector) {
+void imprimir_vector_caracter(char vector[N], const char *nomVector) {
     for (int i = 0; i < N; i++) {
         cout << nomVector << "[" << i << "]: " << vector[i] << " ";
     }
@@ -296,6 +298,4 @@ int main() {
     return 0;
 }
 
-
-}
 
