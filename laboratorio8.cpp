@@ -2,7 +2,7 @@
 #include <cstdlib> // Para rand() y srand()
 #include <ctime>   // Para time()
 #include <chrono>  // Para medir el tiempo
-#include <limits>  // Para manejar errores de entrada
+//#include <limits>  // Para manejar errores de entrada
 
 using namespace std;
 
@@ -147,4 +147,3 @@ int main() {
 
     return 0;
 }
-
