@@ -2,10 +2,12 @@
 #include <cstdlib> // Para rand() y srand()
 #include <ctime>   // Para time()
 #include <chrono>  // Para medir el tiempo
+#include <limits>  // Para manejar errores de entrada
 
 using namespace std;
 
 // Función para mover valores del arreglo en el ordenamiento
+//Para 
 void swap(int* a, int* b) {
     int t = *a;
     *a = *b;
@@ -14,6 +16,7 @@ void swap(int* a, int* b) {
 
 //......QUICKSORT.................................
 
+// 
 int partition(int arr[], int low, int high) {
     int pivot = arr[high];
     int i = (low - 1);
@@ -54,26 +57,23 @@ void selectionSort(int arr[], int n) {
 
 
 // Ingresar un valor de N 
-// N > 0
 int ingresarN() {
     int N;
-    while(true){
-        cout << "Ingrese el tamano del conjunto a ordenar : ";
+    while (true) {
+        cout << "Ingrese el tamano del conjunto a ordenar: ";
         cin >> N;
 
         //Comprobar que N sea un numero entero positivo
-        if (cin.fail() || N <= 0) {
+        if (cin.fail() || N <= 0 || cin.peek() != '\n') {
             cin.clear(); 
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
-
             cout << "Error: Debe ingresar un numero entero positivo." << endl;
-            return ingresarN();
         } 
         else {
             break; 
         }
-
     }
+    return N;
 }
 
 // Llenar el arreglo con valores aleatorios entre 1 y 100
@@ -141,9 +141,10 @@ int main() {
     cout << "Tiempo de SelectionSort: " << durationSelection << " ms" << endl;
 
     // Liberar memoria
-    /*delete[] arrOriginal;
+    delete[] arrOriginal;
     delete[] arrQuick;
-    delete[] arrSelection;*/
+    delete[] arrSelection;
 
     return 0;
 }
+
